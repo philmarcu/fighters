@@ -1,0 +1,8 @@
+<h1><%= @fighter.name %>'s Movelist</h1>
+<% @moves.each do |move| %>
+<b><%= move.name %></b>
+<p>Power: <%= move.power %></p>
+<p>Speed: <%= move.speed %></p>
+<p>Grade: <%= move.grade %></p>
+<p>Top Tier: <%= move.top_tier %></p>
+<% end  %>

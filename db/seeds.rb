@@ -9,7 +9,7 @@
 Move.destroy_all
 Fighter.destroy_all
 
-# ------- Fighters(P) -------- #
+# ------- Fighters -------- # Parent
 
 fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
 turtle = Fighter.create!(name: "The Tilted Turtle", rival: "false", rank: 5, style: "Ninjutsu")
@@ -17,7 +17,7 @@ mailman = Fighter.create!(name: "The Mailman", rival: "true", rank: 4, style: "B
 tubeman = Fighter.create!(name: "Inflatable Tube Man", rival: "false", rank: 1, style: "Wobbly")
 king = Fighter.create!(name: "King", rival: "false", rank: 2, style: "Freestyle Wrestling")
 
-# ------- Moves(C) -------- #
+# ------- Moves -------- # Child
 
 fox_l = Move.create!(name: "Slash (Light)", power: 41, speed: 93, grade: "77.0 - B Tier", top_tier: false, fighter_id: fox.id)
 fox_h = Move.create!(name: "Sweep (Heavy)", power: 57, speed: 62, grade: "69.5 - C Tier", top_tier: false, fighter_id: fox.id)
@@ -33,9 +33,9 @@ mail_s = Move.create!(name: "Mail Hail (Special)", power: 43, speed: 72, grade: 
 
 tube_l = Move.create!(name: "Noodle (Light)", power: 34, speed: 107, grade: "80.5 - A Tier", top_tier: true, fighter_id: tubeman.id)
 tube_h = Move.create!(name: "Wave (Heavy)", power: 38, speed: 67, grade: "62.5 - C Tier", top_tier: false, fighter_id: tubeman.id)
-tube_s = Move.create!(name: "Whirlwind (Special)", power: 50, speed: 97, grade: "83.5 - A Tier", top_tier: true, fighter_id: tubeman.id)
+tube_s = Move.create!(name: "Whirlwind (Special)", power: 50, speed: 85, grade: "77.5 - B Tier", top_tier: false, fighter_id: tubeman.id)
 
-king_l = Move.create!(name: "Jab (Light)", power: 56, speed: 63, grade: "69.5 - C Tier", top_tier: false, fighter_id: king.id)
+king_l = Move.create!(name: "Jab (Light)", power: 56, speed: 67, grade: "71.5 - B Tier", top_tier: false, fighter_id: king.id)
 king_h = Move.create!(name: "Hellbow (Heavy)", power: 71, speed: 46, grade: "68.5 - C Tier", top_tier: false, fighter_id: king.id)
 king_s = Move.create!(name: "Giant Swing (Special)", power: 102, speed: 47, grade: "84.5 - A Tier", top_tier: true, fighter_id: king.id)
 
