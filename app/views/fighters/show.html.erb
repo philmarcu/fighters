@@ -1,4 +1,7 @@
-<h1><%= @fighter.name %></h1><br>
-<b><%= @fighter.style %></b><br>
-<b><%= @fighter.rank %></b><br>
-<b><%= @fighter.rival %></b>
+<h1><%= @fighter.name %></h1>
+<%= link_to "Moveslist", "/moves" %>&emsp;
+<%= link_to "Fighters", "/fighters" %><br><br>
+<b>Style: <%= @fighter.style %></b>
+<p>Rank: <%= @fighter.rank %></p>
+<p>Rival: <%= @fighter.rival %></p>
+<p>Total Moves: <%= @fighter.total_moves %></p>
