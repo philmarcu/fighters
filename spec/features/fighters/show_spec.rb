@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'fighters show page' do
-  it 'displays the fighters name' do
+  it 'displays the specific fighters name' do
     fighter = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
     fighter2 = Fighter.create!(name: "The Tilted Turtle", rival: "false", rank: 5, style: "Ninjutsu")
 
