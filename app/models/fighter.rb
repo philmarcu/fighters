@@ -8,4 +8,8 @@ class Fighter < ApplicationRecord
   def self.order_by_created_at
     order(created_at: :desc)
   end
+
+  def total_moves
+    self.moves.length
+  end
 end

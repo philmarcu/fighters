@@ -1,4 +1,6 @@
 <h1><%= @fighter.name %>'s Movelist</h1>
+<%= link_to "Moveslist", "/moves" %>&emsp;
+<%= link_to "Fighters", "/fighters" %><br><br>
 <% @moves.each do |move| %>
 <b><%= move.name %></b>
 <p>Power: <%= move.power %></p>

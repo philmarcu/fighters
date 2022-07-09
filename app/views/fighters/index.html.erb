@@ -1,4 +1,6 @@
 <h1>Welcome To The Backyard Arena!</h1><br>
+<%= link_to "Moveslist", "/moves" %>&emsp;
+<%= link_to "Fighters", "/fighters" %>
 <h3>- Choose Your Fighter Below -</h3>
 <% @fighters.each_with_index do |fighter, index| %><br><br>
 <div id="fighter-<%= index %>">
