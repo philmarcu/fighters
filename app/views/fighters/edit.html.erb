@@ -1,0 +1,10 @@
+<form action= "/fighters/<%= @fighter.id %>" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="_method" value="PATCH">
+<h2>Edit Your Fighter</h2>
+<input type='text' name='fighter[name]' value="<%= @fighter.name %>">
+<input type='text' name='fighter[name]' value="<%= @fighter.rival %>">
+<input type='text' name='fighter[name]' value="<%= @fighter.rank %>">
+<input type='text' name='fighter[name]' value="<%= @fighter.style %>">
+<input type="submit"/>
+</form>
