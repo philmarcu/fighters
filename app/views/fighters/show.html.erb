@@ -5,3 +5,4 @@
 <p>Rank: <%= @fighter.rank %></p>
 <p>Rival: <%= @fighter.rival %></p>
 <p>Total Moves: <%= @fighter.total_moves %></p>
+<%= link_to @fighter.name + "'s Movelist", "/fighters/#{@fighter.id}/moves" %>
