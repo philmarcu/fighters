@@ -1,7 +1,8 @@
 <h1><%= @fighter.name %></h1>
 <%= link_to "Moveslist", "/moves" %>&emsp;
 <%= link_to "Fighters", "/fighters" %>&emsp;
-<%= link_to "Edit Fighter", "/fighters/#{@fighter.id}/edit" %><br><br>
+<%= link_to "Edit Fighter", "/fighters/#{@fighter.id}/edit" %>&emsp;
+<%= link_to "Create Moves", "/fighters/#{@fighter.id}/moves/new" %><br><br>
 <b>Style: <%= @fighter.style %></b>
 <p>Rank: <%= @fighter.rank %></p>
 <p>Rival: <%= @fighter.rival %></p>

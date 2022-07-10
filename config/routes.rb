@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   patch '/fighters/:id', to: 'fighters#update'
   get '/moves', to: 'moves#index'
   get '/moves/:id', to: 'moves#show'
-  get '/fighters/:fighter_id/moves', to: 'fighter_moves#index'
+  get '/fighters/:id/moves', to: 'fighter_moves#index'
+  get '/fighters/:id/moves/new', to: 'fighter_moves#new'
+  post '/fighters/:id/moves', to: 'fighter_moves#create'
 end
