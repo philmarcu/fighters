@@ -1,6 +1,7 @@
 <h1><%= @fighter.name %></h1>
 <%= link_to "Moveslist", "/moves" %>&emsp;
-<%= link_to "Fighters", "/fighters" %><br><br>
+<%= link_to "Fighters", "/fighters" %>&emsp;
+<%= link_to "Edit Fighter", "/fighters/#{@fighter.id}/edit" %><br><br>
 <b>Style: <%= @fighter.style %></b>
 <p>Rank: <%= @fighter.rank %></p>
 <p>Rival: <%= @fighter.rival %></p>
