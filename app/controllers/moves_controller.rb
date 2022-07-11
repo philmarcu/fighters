@@ -10,4 +10,8 @@ class MovesController < ApplicationController
 
   def new
   end
+
+  def edit
+    @move = Move.find(params[:id])
+  end
 end
