@@ -20,8 +20,6 @@ RSpec.describe 'fighter moves new page' do
     fill_in('Top Tier', with: true)
     click_on('Create New Move')
 
-    save_and_open_page
-
     expect(page).to have_content(move.name)
   end
 end
