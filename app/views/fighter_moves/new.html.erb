@@ -1,10 +1,14 @@
-<form action="/fighters/:id/moves" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <h2>Create A New Move</h2>
-  <b>Name:&emsp;</b><input type='text' name='move[name]'/><br>
-  <b>Power:&emsp;</b><input type='text' name='move[power]'/><br>
-  <b>Speed:&emsp;</b><input type='text' name='move[speed]'/><br>
-  <b>Grade:&emsp;</b><input type='text' name='move[grade]'/><br>
-  <b>Top Tier:&emsp;</b><input type='text' name='move[top_tier]'/><br>
-  <input type='submit'/>
-</form>
+<%= form_with url: "/fighters/#{@fighter.id}/moves", method: :post, local: true do |form| %>
+<h1>Create New Move</h1>
+<%= form.label :name %>
+<%= form.text_field :name %><br>
+<%= form.label :power %>
+<%= form.text_field :power%><br>
+<%= form.label :speed %>
+<%= form.text_field :speed%><br>
+<%= form.label :grade %>
+<%= form.text_field :grade%><br>
+<%= form.label :top_tier, "Top Tier" %>
+<%= form.text_field :top_tier%><br>
+<%= form.submit "Create New Move" %>
+<% end %>
