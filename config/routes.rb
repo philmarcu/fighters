@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/fighters', to: 'fighters#index'
   get '/moves', to: 'moves#index'
   get '/moves/:id', to: 'moves#show'
+  get '/moves/:id/edit', to: 'moves#edit'
   get 'fighters/new', to: 'fighters#new'
   post '/fighters', to: 'fighters#create'
   get '/fighters/:id', to: 'fighters#show'
@@ -11,5 +12,4 @@ Rails.application.routes.draw do
   get '/fighters/:fighter_id/moves', to: 'fighter_moves#index'
   get '/fighters/:fighter_id/moves/new', to: 'fighter_moves#new'
   post '/fighters/:fighter_id/moves', to: 'fighter_moves#create'
-  
 end
