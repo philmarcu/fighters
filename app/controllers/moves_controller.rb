@@ -9,6 +9,5 @@ class MovesController < ApplicationController
   end
 
   def new
-    
   end
 end

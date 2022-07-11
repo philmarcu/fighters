@@ -3,13 +3,12 @@ class FightersController < ApplicationController
   def index
     @fighters = Fighter.all.order_by_created_at
   end
+  
+  def new
+  end
 
   def show
     @fighter = Fighter.find(params[:id])
-  end
-
-  def new
-   
   end
 
   def create
@@ -18,10 +17,11 @@ class FightersController < ApplicationController
       rival: params[:fighter][:rival],
       rank: params[:fighter][:rank],
       style: params[:fighter][:style]
-    })
+      })
     fighter.save
     redirect_to '/fighters'
   end
+    
 
   def edit
     @fighter = Fighter.find(params[:id])
