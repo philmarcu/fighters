@@ -1,0 +1,14 @@
+<h2>Edit Move</h2>
+<%= form_with url: "/moves/#{@move.id}/edit", method: :get, local: true do |form| %>
+<%= form.label :name%>
+<%= form.text_field :name %><br>
+<%= form.label :power %>
+<%= form.text_field :power %><br>
+<%= form.label :speed %>
+<%= form.text_field :speed %><br>
+<%= form.label :grade %>
+<%= form.text_field :grade %><br>
+<%= form.label :top_tier %>
+<%= form.text_field :top_tier %><br>
+<%= form.submit "Update Move" %>
+<% end %>
