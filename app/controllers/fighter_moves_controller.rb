@@ -1,24 +1,27 @@
 class FighterMovesController < ApplicationController
 
   def index
-    @fighter = Fighter.find(params[:id])
+    @fighter = Fighter.find(params[:fighter_id])
     @moves = @fighter.moves
   end
 
   def new
-    
+    @fighter = Fighter.find(params[:fighter_id])
+  end
+  
+  def create
+    fighter = Fighter.find(params[:fighter_id])
+    fighter.moves.create!(move_params)
+    redirect_to "/fighters/#{fighter.id}/moves"
   end
 
-  def create
-    @fighter = Fighter.find(params[:id])
-    move = Move.new({
-      name: params[:move][:name],
-      name: params[:move][:power],
-      name: params[:move][:speed],
-      name: params[:move][:grade],
-      name: params[:move][:top_tier]
-    })
-    move.save
-    redirect_to "/fighters/#{@fighter.id}/moves"
+  private
+  def move_params
+    params.permit(:name, :power, :speed, :grade, :top_tier)
   end
+
+
+  # destroy method notes
+  # have to look up the variable id again
+
 end
