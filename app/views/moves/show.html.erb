@@ -1,7 +1,7 @@
 <h1><%= @move.fighter.name %>'s <%= @move.name %> Attack</h1>
 <%= link_to "Moveslist", "/moves" %>&emsp;
 <%= link_to "Fighters", "/fighters" %>&emsp;
-<%= link_to "Update Move", "/moves/#{@move.id}/edit" %><br>
+<%= link_to "Update Move", "/moves/#{@move.id}/edit", method: :get %><br>
 <h3><%= @move.name %></h3>
 <p>Power: <%= @move.power %></p>
 <p>Speed: <%= @move.speed %></p>

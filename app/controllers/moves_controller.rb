@@ -14,4 +14,16 @@ class MovesController < ApplicationController
   def edit
     @move = Move.find(params[:id])
   end
+
+  def update
+    move = Move.find(params[:id])
+    move.update!(move_params)
+    redirect_to "/moves/#{move.id}"
+  end
+
+  private
+  def move_params
+    params.permit(:name, :power, :speed, :grade, :top_tier)
+  end
+
 end
