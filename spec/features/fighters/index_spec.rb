@@ -76,4 +76,16 @@ RSpec.describe 'Fighters index page' do
     expect(page).to_not have_content(fox.rank)
     expect(page).to_not have_content(turtle.rank)
   end
+
+  it 'links to a specific fighter`s edit page' do
+    turtle = Fighter.create!(name: "The Tilted Turtle", rival: "false", rank: 5, style: "Ninjutsu")
+    fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
+
+    visit "/fighters"
+
+    click_link("Edit Fox The Boxer", :match => :first)
+    
+    expect(current_path).to eq("/fighters/#{fox.id}/edit")
+    expect(page).to have_button("Submit")
+  end
 end
