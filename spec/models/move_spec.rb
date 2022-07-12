@@ -26,9 +26,25 @@ RSpec.describe Move, type: :model do
         top2 = fox.moves.create!(name: "Star Beam (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
         top3 = turtle.moves.create!(name: "Big Boom (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: turtle.id)
         top4 = turtle.moves.create!(name: "Island Shell (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: turtle.id)
-        
+
         expect(Move.order_by_top_tier).to eq([top1, top2, top3, top4])
         expect(Move.order_by_top_tier).to_not eq([move1, move2])
+      end
+    end
+  end
+
+  describe 'class methods' do
+    describe '::by_name' do
+      it 'sorts a specific fighter`s moves alphabetically' do
+        fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
+
+        move1 = fox.moves.create!(name: "Double Dive (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
+        move2 = fox.moves.create!(name: "Grazer-blast (Heavy)", power: 60, speed: 62, grade: "71.0 - B Tier", top_tier: false, fighter_id: fox.id)
+        move3 = fox.moves.create!(name: "Slash (Light)", power: 41, speed: 93, grade: "77.0 - B Tier", top_tier: false, fighter_id: fox.id)
+        move4 = fox.moves.create!(name: "Zorro's Slash (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
+        
+        expect(fox.moves.by_name).to eq([move1, move2, move3, move4])
+        expect(fox.moves.by_name).to_not eq([move4, move3, move1, move2])
       end
     end
   end
