@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/moves', to: 'moves#index'
   get '/moves/:id', to: 'moves#show'
   get '/moves/:id/edit', to: 'moves#edit'
+  patch '/moves/:id', to: 'moves#update'
   get 'fighters/new', to: 'fighters#new'
   post '/fighters', to: 'fighters#create'
   get '/fighters/:id', to: 'fighters#show'
