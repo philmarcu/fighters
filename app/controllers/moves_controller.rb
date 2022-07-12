@@ -4,6 +4,10 @@ class MovesController < ApplicationController
     @moves = Move.all
   end
 
+  def best
+    @moves = Move.order_by_top_tier
+  end
+
   def show
     @move = Move.find(params[:id])
   end
