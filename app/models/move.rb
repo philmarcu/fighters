@@ -9,4 +9,8 @@ class Move < ApplicationRecord
   def self.order_by_top_tier
     where(top_tier: true)
   end
+
+  def self.by_name
+    order(:name)
+  end
 end

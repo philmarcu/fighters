@@ -3,6 +3,11 @@ class FighterMovesController < ApplicationController
   def index
     @fighter = Fighter.find(params[:fighter_id])
     @moves = @fighter.moves
+    if params[:sort] == 'name'
+      @moves = @fighter.moves.by_name
+    else
+      @moves = @fighter.moves
+    end
   end
 
   def new
