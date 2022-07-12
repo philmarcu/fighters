@@ -1,13 +1,4 @@
 require 'rails_helper'
-# As a visitor
-# When I visit a Move Show page
-# Then I see a link to update that Move "Update Move"
-# When I click the link
-# I am taken to '/move_table_name/:id/edit' where I see a form to edit the move's attributes:
-# When I click the button to submit the form "Update Move"
-# Then a `PATCH` request is sent to '/moves/:id',
-# the move's data is updated,
-# and I am redirected to the Move Show page where I see the Move's updated information
 
 RSpec.describe 'moves edit page' do
   describe 'when i see a moves show page' do
