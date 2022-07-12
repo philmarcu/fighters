@@ -1,11 +1,11 @@
-<h1>Fighting Game Movelist Index</h1>
+<h1>Best Moves</h1>
+<h3>AKA Cheapest Moves</h3>
 <%= link_to "Moveslist", "/moves" %>&emsp;
 <%= link_to "Fighters", "/fighters" %>&emsp;
 <%= link_to "Best Moves", "/moves/best_moves" %><br><br>
-<% @moves.each_with_index do |move, index| %>
+<% @moves.order_by_top_tier.each_with_index do |move, index| %>
 <div id="move-<%= index %>">
 <b><%= move.name %> -&emsp; <%= move.fighter.name %></b><br>
 <p>Grade: <%= move.grade %></p><br>
 </div>
 <% end %>
-
