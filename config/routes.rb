@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/fighters', to: 'fighters#index'
   get '/moves', to: 'moves#index'
+  get '/moves/best_moves', to: 'moves#best'
   get '/moves/:id', to: 'moves#show'
   get '/moves/:id/edit', to: 'moves#edit'
   patch '/moves/:id', to: 'moves#update'
