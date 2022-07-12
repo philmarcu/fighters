@@ -26,13 +26,9 @@ RSpec.describe Move, type: :model do
         top2 = fox.moves.create!(name: "Star Beam (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
         top3 = turtle.moves.create!(name: "Big Boom (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: turtle.id)
         top4 = turtle.moves.create!(name: "Island Shell (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: turtle.id)
-
-        fox_moves = fox.moves
-        turt_moves = turtle.moves
         
-        expect(fox_moves.order_by_top_tier).to eq([top1, top2])
-        expect(turt_moves.order_by_top_tier).to eq([top3, top4])
-        expect(fox_moves.order_by_top_tier).to_not eq([move1, move2])
+        expect(Move.order_by_top_tier).to eq([top1, top2, top3, top4])
+        expect(Move.order_by_top_tier).to_not eq([move1, move2])
       end
     end
   end
