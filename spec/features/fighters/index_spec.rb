@@ -39,7 +39,7 @@ RSpec.describe 'Fighters index page' do
     expect(page).to have_content(turtle.created_at)
   end
 
-  it 'orders by when fighter is created' do
+  it 'orders by when fighter is created(descending)' do
     fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
     turtle = Fighter.create!(name: "The Tilted Turtle", rival: "false", rank: 2, style: "Ninjutsu")
     mailman = Fighter.create!(name: "The Mailman", rival: "true", rank: 4, style: "Backyard Wrestling")
