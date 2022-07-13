@@ -13,4 +13,9 @@ class Move < ApplicationRecord
   def self.by_name
     order(:name)
   end
+
+  def self.power_greater_than(n)
+    moves = Move.all
+    moves.select { |move| move.power > n }
+  end
 end
