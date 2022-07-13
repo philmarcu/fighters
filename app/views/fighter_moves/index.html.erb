@@ -3,10 +3,10 @@
 <%= link_to "Fighters", "/fighters" %>&emsp;
 <%= link_to "New Move", "/fighters/#{@fighter.id}/moves/new" %>&emsp;
 <%= link_to "Sort Alphabetically", "/fighters/#{@fighter.id}/moves?sort=name" %><br><br>
-<%= form_with url: "/fighters/#{@fighter.id}/moves", method: :patch, local: true do |form| %>
-  <%= form.label :total_moves, "Power Level" %>
-  <%= form.text_field :power_greater_than %>
-  <%= form.submit 'Search' %><br><br>
+<%= form_tag "/fighters/#{@fighter.id}/moves", method: :get do %>
+  <%= label_tag :power_level, "Power Level Search" %>
+  <%= number_field_tag :power_level, '0', min: '' %><br>
+  <%= submit_tag "Search", name: "Power Level At / Above" %>
 <% end %>
 <% @moves.each do |move| %>
 <b><%= move.name %></b>&emsp;&emsp;<%= link_to "Edit #{move.name}", "/moves/#{move.id}/edit" %>
