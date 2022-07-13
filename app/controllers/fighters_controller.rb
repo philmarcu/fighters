@@ -38,4 +38,10 @@ class FightersController < ApplicationController
     fighter.save
     redirect_to "/fighters/#{fighter.id}"
   end
+
+  def destroy
+    fighter = Fighter.find(params[:id])
+    fighter.destroy
+    redirect_to '/fighters'
+  end
 end

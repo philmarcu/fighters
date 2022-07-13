@@ -6,6 +6,7 @@
 <% @fighters.each_with_index do |fighter, index| %><br><br>
 <div id="fighter-<%= index %>">
 <b><%= fighter.name %></b>&emsp;&emsp;<%= link_to "Edit #{fighter.name}", "/fighters/#{fighter.id}/edit" %>
+<%= button_to "Delete #{fighter.name}", "/fighters/#{fighter.id}", method: :delete %>
 <p>Style: <%= fighter.style %></p>
 <p>Rank: <%= fighter.rank %></p>
 <p>Created at: <%= fighter.created_at %></p>
