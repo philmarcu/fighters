@@ -12,13 +12,7 @@ class FightersController < ApplicationController
   end
 
   def create
-    fighter = Fighter.new({
-      name: params[:fighter][:name],
-      rival: params[:fighter][:rival],
-      rank: params[:fighter][:rank],
-      style: params[:fighter][:style]
-      })
-    fighter.save
+    fighter = Fighter.create!(fighter_params)
     redirect_to '/fighters'
   end
     
@@ -28,14 +22,8 @@ class FightersController < ApplicationController
   end
 
   def update
-    fighter = Fighter.find(params[:id])
-    fighter.update({
-      name: params[:fighter][:name],
-      rival: params[:fighter][:rival],
-      rank: params[:fighter][:rank],
-      style: params[:fighter][:style]
-    })
-    fighter.save
+    fighter =Fighter.find(params[:id])
+    fighter.update!(fighter_params)
     redirect_to "/fighters/#{fighter.id}"
   end
 
@@ -43,5 +31,10 @@ class FightersController < ApplicationController
     fighter = Fighter.find(params[:id])
     fighter.destroy
     redirect_to '/fighters'
+  end
+
+  private
+  def fighter_params
+    params.permit(:name, :rival, :rank, :style)
   end
 end

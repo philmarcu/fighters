@@ -86,6 +86,6 @@ RSpec.describe 'Fighters index page' do
     click_link("Edit Fox The Boxer", :match => :first)
     
     expect(current_path).to eq("/fighters/#{fox.id}/edit")
-    expect(page).to have_button("Submit")
+    expect(page).to have_button("Edit Your Fighter")
   end
 end
