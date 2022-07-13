@@ -14,7 +14,7 @@ RSpec.describe Fighter do
   end
 
   describe 'class methods' do
-    describe 'total_moves' do
+    describe '#total_moves' do
       it 'should count a fighters total moves' do
         fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
 
