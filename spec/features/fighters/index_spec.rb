@@ -88,4 +88,17 @@ RSpec.describe 'Fighters index page' do
     expect(current_path).to eq("/fighters/#{fox.id}/edit")
     expect(page).to have_button("Edit Your Fighter")
   end
+
+  it 'links to a fighters delete and returns to the index page' do
+    turtle = Fighter.create!(name: "The Tilted Turtle", rival: "false", rank: 5, style: "Ninjutsu")
+    fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
+
+    visit "/fighters"
+
+    click_on("Delete The Tilted Turtle", :match => :first)
+
+    expect(current_path).to eq("/fighters")
+    expect(page).to_not have_content(turtle.name)
+    expect(page).to have_content(fox.name)
+  end
 end
