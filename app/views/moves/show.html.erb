@@ -7,3 +7,4 @@
 <p>Speed: <%= @move.speed %></p>
 <p>Grade: <%= @move.grade %></p>
 <p>Top Tier: <%= @move.top_tier %></p>
+<%= button_to "Delete #{@move.name}", "/moves/#{@move.id}", method: :delete %>
