@@ -16,14 +16,16 @@ RSpec.describe 'moves index page' do
       expect(page).to have_content(fox_l.name)
       expect(page).to have_content(tur_h.grade)
       expect(page).to have_content(mail_h.power)
+      expect(page).to_not have_content(fox.rival)
+      expect(page).to_not have_content(turtle.style)
     end
 
     it 'links to the moveslist & fighter page' do
-      fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
-      turtle = Fighter.create!(name: "The Tilted Turtle", rival: "false", rank: 5, style: "Ninjutsu")
+      fighter1 = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
+      fighter2 = Fighter.create!(name: "The Tilted Turtle", rival: "false", rank: 5, style: "Ninjutsu")
 
-      move1 = Move.create!(name: "Slash (Light)", power: 41, speed: 93, grade: "77.0 - B Tier", top_tier: false, fighter_id: fox.id)
-      move2 = Move.create!(name: "Roundhouse (Heavy)", power: 60, speed: 62, grade: "71.0 - B Tier", top_tier: false, fighter_id: turtle.id)
+      move1 = Move.create!(name: "Slash (Light)", power: 41, speed: 93, grade: "77.0 - B Tier", top_tier: false, fighter_id: fighter1.id)
+      move2 = Move.create!(name: "Roundhouse (Heavy)", power: 60, speed: 62, grade: "71.0 - B Tier", top_tier: false, fighter_id: fighter2.id)
 
 
       visit "/fighters"
@@ -32,11 +34,11 @@ RSpec.describe 'moves index page' do
 
       expect(page).to have_content(move1.name)
       expect(page).to have_content(move2.name)
-      expect(page).to_not have_content(fox.rank)
-      expect(page).to_not have_content(turtle.rank)
+      expect(page).to_not have_content(fighter1.rank)
+      expect(page).to_not have_content(fighter2.rank)
     end
 
-    it 'links to a specific fighter`s edit page' do
+    it 'links to a specific fighter`s move edit page' do
       fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
       
       move1 = fox.moves.create!(name: "Double Dive (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
@@ -50,6 +52,21 @@ RSpec.describe 'moves index page' do
       expect(current_path).to_not eq("/moves/#{move2.id}/edit")
       expect(page).to have_button("Update Your Move")
     end
+  end
+
+  it 'links to a moves delete and returns to the index page' do
+    fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
+
+    move1 = fox.moves.create!(name: "Double Dive (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
+    move2 = fox.moves.create!(name: "Grazer-blast (Heavy)", power: 60, speed: 62, grade: "71.0 - B Tier", top_tier: false, fighter_id: fox.id)
+   
+    visit "/moves"
+
+    click_on("Delete Grazer-blast (Heavy)", :match => :first)
+
+    expect(current_path).to eq("/moves")
+    expect(page).to have_content(move1.name)
+    expect(page).to_not have_content(move2.name)
   end
 end
 
