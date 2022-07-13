@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/fighters/:fighter_id/moves', to: 'fighter_moves#index'
   get '/fighters/:fighter_id/moves/new', to: 'fighter_moves#new'
   post '/fighters/:fighter_id/moves', to: 'fighter_moves#create'
+  patch '/fighters/:fighter_id/moves', to: 'fighter_moves#power_level'
 end
