@@ -4,7 +4,7 @@
 <%= link_to "New Move", "/fighters/#{@fighter.id}/moves/new" %>&emsp;
 <%= link_to "Sort Alphabetically", "/fighters/#{@fighter.id}/moves?sort=name" %><br><br>
 <% @moves.each do |move| %>
-<b><%= move.name %></b>
+<b><%= move.name %></b>&emsp;&emsp;<%= link_to "Edit #{move.name}", "/moves/#{move.id}/edit" %>
 <p>Power: <%= move.power %></p>
 <p>Speed: <%= move.speed %></p>
 <p>Grade: <%= move.grade %></p>
