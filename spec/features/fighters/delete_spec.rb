@@ -10,8 +10,6 @@ RSpec.describe 'delete button on index page' do
     click_on("Delete Fox The Boxer", :match => :first)
     expect(current_path).to eq('/fighters')
 
-    save_and_open_page
-
     expect(page).to_not have_content(fox.name)
     expect(page).to have_content(turtle.name)
   end

@@ -25,6 +25,12 @@ class MovesController < ApplicationController
     redirect_to "/moves/#{move.id}"
   end
 
+  def destroy
+    move = Move.find(params[:id])
+    move.destroy
+    redirect_to '/moves'
+  end
+
   private
   def move_params
     params.permit(:name, :power, :speed, :grade, :top_tier)
