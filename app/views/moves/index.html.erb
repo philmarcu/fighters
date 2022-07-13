@@ -4,7 +4,8 @@
 <%= link_to "Best Moves", "/moves/best_moves" %><br><br>
 <% @moves.each_with_index do |move, index| %>
 <div id="move-<%= index %>">
-<b><%= move.name %> -&emsp; <%= move.fighter.name %></b><br>
+<b><%= move.name %></b>&emsp;&emsp;<%= link_to "Edit #{move.name}", "/moves/#{move.id}/edit" %>
+<p><%= move.fighter.name %></p>
 <p>Grade: <%= move.grade %></p><br>
 </div>
 <% end %>

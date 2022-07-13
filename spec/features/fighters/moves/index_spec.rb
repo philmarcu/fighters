@@ -71,4 +71,19 @@ RSpec.describe 'fighters movelist index page' do
     expect(move2.name).to appear_before(move3.name)
     expect(move3.name).to appear_before(move4.name)
   end
+
+  it 'links to a specific fighter`s edit page' do
+    fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
+    
+    move1 = fox.moves.create!(name: "Double Dive (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
+    move2 = fox.moves.create!(name: "Grazer-blast (Heavy)", power: 60, speed: 62, grade: "71.0 - B Tier", top_tier: false, fighter_id: fox.id)
+
+    visit "/moves"
+
+    click_link("Double Dive (Special)", :match => :first)
+    
+    expect(current_path).to eq("/moves/#{move1.id}/edit")
+    expect(current_path).to_not eq("/moves/#{move2.id}/edit")
+    expect(page).to have_button("Update Your Move")
+  end
 end
