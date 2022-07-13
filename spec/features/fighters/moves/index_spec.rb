@@ -86,4 +86,19 @@ RSpec.describe 'fighters movelist index page' do
     expect(current_path).to_not eq("/moves/#{move2.id}/edit")
     expect(page).to have_button("Update Your Move")
   end
+
+  it 'links to a fighter moves delete and returns to the index page' do
+    fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
+
+    move1 = fox.moves.create!(name: "Double Dive (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
+    move2 = fox.moves.create!(name: "Grazer-blast (Heavy)", power: 60, speed: 62, grade: "71.0 - B Tier", top_tier: false, fighter_id: fox.id)
+   
+    visit "/fighters/#{fox.id}/moves"
+
+    click_on("Delete Grazer-blast (Heavy)", :match => :first)
+
+    expect(current_path).to eq("/moves")
+    expect(page).to have_content(move1.name)
+    expect(page).to_not have_content(move2.name)
+  end
 end

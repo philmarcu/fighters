@@ -6,7 +6,8 @@
 <div id="move-<%= index %>">
 <b><%= move.name %></b>&emsp;&emsp;<%= link_to "Edit #{move.name}", "/moves/#{move.id}/edit" %>
 <p><%= move.fighter.name %></p>
-<p>Grade: <%= move.grade %></p><br>
+<p>Grade: <%= move.grade %></p>
+<%= button_to "Delete #{move.name}", "/moves/#{move.id}", method: :delete %><br><br>
 </div>
 <% end %>
 

@@ -5,10 +5,10 @@
 <h3>- Choose Your Fighter Below -</h3>
 <% @fighters.each_with_index do |fighter, index| %><br><br>
 <div id="fighter-<%= index %>">
-<b><%= fighter.name %></b>&emsp;&emsp;<%= link_to "Edit #{fighter.name}", "/fighters/#{fighter.id}/edit" %>
-<%= button_to "Delete #{fighter.name}", "/fighters/#{fighter.id}", method: :delete %>
+<b><%= fighter.name %></b>&emsp;&emsp;<%= link_to "Edit #{fighter.name}", "/fighters/#{fighter.id}/edit" %></b>
 <p>Style: <%= fighter.style %></p>
 <p>Rank: <%= fighter.rank %></p>
 <p>Created at: <%= fighter.created_at %></p>
+<br><%= button_to "Delete #{fighter.name}", "/fighters/#{fighter.id}", method: :delete %>
 </div>
 <% end %>

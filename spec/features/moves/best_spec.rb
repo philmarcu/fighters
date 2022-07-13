@@ -2,6 +2,7 @@ require 'rails_helper'
 
 # ------ Test Choice Note ------ #
 # ----- made separate page(/'moves/best_moves') to have past tests not be affected by new expects
+# ----- & to keep moves#index page unaffected, will make new boolean column for filtering index page 
 
 RSpec.describe 'Best Moves index page' do
   describe 'move index true records block' do
