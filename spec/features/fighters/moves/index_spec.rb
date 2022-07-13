@@ -101,4 +101,23 @@ RSpec.describe 'fighters movelist index page' do
     expect(page).to have_content(move1.name)
     expect(page).to_not have_content(move2.name)
   end
+
+  # xit 'displays fighter moves with power above threshold' do
+  #   fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
+
+  #   fox1 = fox.moves.create!(name: "Double Dive (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
+  #   fox2 = fox.moves.create!(name: "Grazer-blast (Heavy)", power: 60, speed: 62, grade: "71.0 - B Tier", top_tier: false, fighter_id: fox.id)
+  #   fox3 = fox.moves.create!(name: "Slash (Light)", power: 41, speed: 93, grade: "77.0 - B Tier", top_tier: false, fighter_id: fox.id)
+  #   fox4 = fox.moves.create!(name: "Zorro's Slash (Special)", power: 99, speed: 99, grade: "99.9 - S Tier", top_tier: true, fighter_id: fox.id)
+
+
+  #   visit "/fighters/#{fox.id}/moves"
+    
+  #   fill_in("Power Level", with: 75)
+    
+  #   expect(page).to have_content(fox1.name)
+  #   expect(page).to have_content(fox4.name)
+  #   expect(page).to_not have_content(fox2.name)
+  #   expect(page).to_not have_content(fox3.name)
+  # end
 end

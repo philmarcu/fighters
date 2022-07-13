@@ -20,13 +20,14 @@ class FighterMovesController < ApplicationController
     redirect_to "/fighters/#{fighter.id}/moves"
   end
 
+  # def power_level
+  #   fighter = Fighter.find(params[:fighter_id])
+  #   fighter.moves.power_greater_than
+  #   redirect_to "/fighters/#{fighter.id}/moves"
+  # end
+
   private
   def move_params
     params.permit(:name, :power, :speed, :grade, :top_tier)
   end
-
-
-  # destroy method notes
-  # have to look up the variable id again
-
 end
