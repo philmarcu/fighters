@@ -42,6 +42,7 @@ RSpec.describe 'moves edit page' do
       
       expect(current_path).to eq("/moves/#{fox_l.id}")
       expect(page).to have_content("222.2 - G Tier (Edit)")
+      expect(page).to_not have_content("77.0 - B Tier")
     end
   end
 end

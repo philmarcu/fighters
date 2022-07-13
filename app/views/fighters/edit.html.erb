@@ -1,10 +1,12 @@
-<form action= "/fighters/<%= @fighter.id %>" method="post">
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-<input type="hidden" name="_method" value="PATCH">
-<h2>Edit Your Fighter</h2>
-<input type='text' name='fighter[name]' value="<%= @fighter.name %>">
-<input type='text' name='fighter[rival]' value="<%= @fighter.rival %>">
-<input type='text' name='fighter[rank]' value="<%= @fighter.rank %>">
-<input type='text' name='fighter[style]' value="<%= @fighter.style %>">
-<button>Submit</button>
-</form>
+<h2>Edit fighter</h2>
+<%= form_with url: "/fighters/#{@fighter.id}", method: :patch, local: true do |form| %>
+<%= form.label :name%>
+<%= form.text_field :name %><br>
+<%= form.label :rank %>
+<%= form.text_field :rank %><br>
+<%= form.label :rival%>
+<%= form.text_field :rival%><br>
+<%= form.label :style %>
+<%= form.text_field :style %><br>
+<%= form.submit "Edit Your Fighter" %>
+<% end %>
