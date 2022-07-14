@@ -23,6 +23,16 @@ RSpec.describe Fighter do
 
         expect(fox.total_moves).to eq(2)
       end
+
+      it 'can order fighters by when they were created' do
+        fox = Fighter.create!(name: "Fox The Boxer", rival: "true", rank: 3, style: "Paw-Boxing")
+        turtle = Fighter.create!(name: "The Tilted Turtle", rival: "false", rank: 5, style: "Ninjutsu")
+        mailman = Fighter.create!(name: "The Mailman", rival: "true", rank: 4, style: "Backyard Brawling")
+        tubeman = Fighter.create!(name: "Inflatable Tube Man", rival: "false", rank: 1, style: "Wobbly")
+        king = Fighter.create!(name: "King", rival: "false", rank: 2, style: "Freestyle Wrestling")       
+
+        expect(Fighter.order_by_created_at).to eq([king, tubeman, mailman, turtle, fox])
+      end
     end
   end
 end

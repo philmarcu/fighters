@@ -1,7 +1,7 @@
 class FightersController < ApplicationController
 
   def index
-    @fighters = Fighter.all.order_by_created_at
+    @fighters = Fighter.order_by_created_at
   end
   
   def new
