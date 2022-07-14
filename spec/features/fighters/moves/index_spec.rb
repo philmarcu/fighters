@@ -116,8 +116,6 @@ RSpec.describe 'fighters movelist index page' do
     fill_in("power_level", with: 75)
 
     click_on "Search"
-
-    save_and_open_page
     
     expect(page).to have_content(fox1.name)
     expect(page).to have_content(fox4.name)
