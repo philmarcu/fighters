@@ -4,9 +4,9 @@
 <%= link_to "New Move", "/fighters/#{@fighter.id}/moves/new" %>&emsp;
 <%= link_to "Sort Alphabetically", "/fighters/#{@fighter.id}/moves?sort=name" %><br><br>
 <%= form_tag "/fighters/#{@fighter.id}/moves", method: :get do %>
-  <%= label_tag :power_level, "Power Level Search" %>
-  <%= number_field_tag :power_level, '0', min: '' %><br>
-  <%= submit_tag "Search", name: "Power Level At / Above" %>
+  <%= label_tag :power_level, "Power Levels Search" %>
+  <%= number_field_tag :power_level, '0', min: '' %>
+  <%= submit_tag "Search", name: "Power Levels At / Above " %><br><br>
 <% end %>
 <% @moves.each do |move| %>
 <b><%= move.name %></b>&emsp;&emsp;<%= link_to "Edit #{move.name}", "/moves/#{move.id}/edit" %>
