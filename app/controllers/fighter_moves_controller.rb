@@ -5,8 +5,7 @@ class FighterMovesController < ApplicationController
     @moves = @fighter.moves
     if (params[:power_level])
       @moves = @fighter.moves.power_greater_than(params[:power_level])
-    end
-    if params[:sort] == 'name'
+    elsif params[:sort] == 'name'
       @moves = @fighter.moves.by_name
     else
       @moves = @fighter.moves
