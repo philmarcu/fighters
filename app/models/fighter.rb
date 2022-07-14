@@ -10,6 +10,6 @@ class Fighter < ApplicationRecord
   end
 
   def total_moves
-    self.moves.length
+    moves.length
   end
 end
